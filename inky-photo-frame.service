@@ -1,0 +1,17 @@
+[Unit]
+Description=Inky Photo Frame Display Service
+After=network.target
+
+[Service]
+Type=simple
+User=peter
+WorkingDirectory=/home/peter/inky-photo-frame
+Environment="PATH=/home/peter/.virtualenvs/pimoroni/bin:/usr/bin:/bin"
+ExecStart=/home/peter/.virtualenvs/pimoroni/bin/python /home/peter/inky-photo-frame/inky_photo_frame.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
